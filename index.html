@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Intro component with sign-up form</title>
+    <link rel="icon" href="./favicon-32x32.png">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+
+        @font-face {
+            font-family: 'MyCustomFont';
+            src: url('./Poppins-Regular.ttf') format('woff2');
+        }
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'MyCustomFont', sans-serif;
+        }
+
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container{
+            width: 1400px;
+            height: 629px;
+            background-image: url(./bg-intro-desktop.png);
+            background-color: hsl(0, 100%, 74%);
+            /* position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); */
+        }
+
+        .main {
+            width: 85%;
+            height: 85%;
+        }
+
+        .description {
+            width: 50%;
+            height: 100%;
+        }
+
+        .description-content {
+            width: 90%;
+            height: 50%; 
+            color: white;
+        }
+
+        .components {
+            width: 50%;
+            height: 100%;
+        }
+
+        .form-components {
+            width: 90%;
+            height: 100%;
+        }
+
+        .payment {
+            color: white;
+            background-color: hsl(248, 32%, 49%);
+            width: 100%;
+            margin-top: 10px;
+            padding: 12px 0;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 6px 0 hsla(253, 23%, 69%, 0.397) ;
+        }
+
+        .payment:hover {
+            cursor: pointer;
+        }
+
+        form {
+            width: 100%;
+            height: 85%;
+            background-color: white;
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 6px 0 hsla(253, 23%, 69%, 0.397) ;
+        }
+        
+        .components-error {
+            padding: 5px 0;
+            
+        }
+
+        .components-error input {
+            width: 100%;
+            border-radius: 5px;
+            padding: 10px;
+            border: 1px solid rgb(230, 230, 230);
+        }
+        #icon-error1, #icon-error2, #icon-error3, #icon-error4 {
+            position: absolute;
+            right: 170px;
+            margin-top: 9px;
+            visibility: hidden;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: none;
+            background-color: hsl(154, 59%, 51%);
+            color: white;
+            font-weight: 650;
+            margin-top: 10px;
+            outline: none;
+        }
+
+        button:hover {
+            cursor: pointer;
+            background-color: hsl(154, 93%, 16%);
+        }
+
+        #form-error1, #form-error2, #form-error3, #form-error4 {
+            visibility: hidden;
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            color: hsl(0, 100%, 74%);
+            font-style: italic;
+            font-size: 10px;
+            margin-top: 5px;
+            padding-right: 5px;
+        }
+
+        h1 {
+            font-size: 40px;
+        }
+
+        footer p {
+            font-size: 11px;
+            margin-top: 15px;
+            text-align: center;
+            color: hsl(246, 25%, 77%);
+        }
+
+
+        @media only screen and (max-width: 375px) {
+
+            .container{
+                width: 100%;
+                height: 900px;
+                background-image: url(./bg-intro-mobile.png);
+                position: static;
+            }
+
+            .main {
+                flex-direction: column;
+                width: 100%;
+                height: 100%;
+            }
+
+            .description {
+                width: 100%;
+                height: 50%;
+            }
+
+            .description-content {
+                width: 100%;
+                text-align: center;
+            }
+
+            .components {
+                width: 100%;
+                height: 100%
+            }
+
+            h1 {
+                font-size: 30px;
+            }
+        
+            .description-content p {
+                width: 85%;
+            }
+
+            .payment {
+                padding: 30px;
+            }
+
+            form {
+                height: 75%;
+            }
+
+            footer p {
+                font-size: 13px;
+            }
+
+        }
+    </style>
+</head>
+<body class="center">
+
+    <div class="container center">
+        <div class="main center">
+
+            <div class="description center">
+                <div class="description-content center" style="flex-direction: column;"> 
+                    <h1>Learn to code by watching others</h1>
+                    <p style="margin-top: 15px;">
+                        See how experienced developers solve problems in real-time.
+                        Watching scripted tutorials is great, but understanding how
+                        developers think is invaluable. 
+                    </p>
+                </div>
+            </div>
+            <div class="components center">
+                <div class="form-components">
+                    <div class="payment">
+                        <strong>Try it free 7 days</strong> then $20/mo. thereafter
+                    </div>
+                    
+                    <form action="" id="form">
+
+                        <div class="components-error">
+                            <input type="text" name="first-name" id="first-name" class="form-input" placeholder="First Name">
+                            <img src="./icon-error.svg" id="icon-error1">
+                            <small id="form-error1">First Name cannot be empty</small>
+                            
+                        </div>
+
+                        <div class="components-error">
+                            <input type="text" name="last-name" id="last-name" class="form-input" placeholder="last Name">
+                            <img src="./icon-error.svg" id="icon-error2">
+                            <small id="form-error2">Last Name cannot be empty</small>
+                        </div>
+
+                        <div class="components-error">
+                            <input type="email" name="eamil-address" id="email-address" class="form-input email-input" placeholder="Email Address">
+                            <img src="./icon-error.svg" id="icon-error3">
+                            <small id="form-error3">Email cannot be empty</small>
+                        </div>
+
+                        <div class="components-error">
+                            <input type="password" name="password" id="password" class="form-input" placeholder="Password">
+                            <img src="./icon-error.svg" id="icon-error4">
+                            <small id="form-error4">Password cannot be empty</small>
+                        </div>
+
+                        <button type="submit">CLAIM YOUR FREE TRIAL</button>
+
+                        <footer>
+                            <p>
+                                By clicking the button, you are agreeing to our
+                                <a href="" style="text-decoration: none; color: hsl(0, 100%, 74%); font-weight: 700;">
+                                    Terms and Services
+                                </a>
+                            </p>
+                        </footer>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script>
+        const form = document.getElementById("form");
+
+        const firstName = document.getElementById("first-name");
+        const iconError1 = document.getElementById("icon-error1");
+        const formError1 = document.getElementById("form-error1");
+
+
+        const lastName = document.getElementById("last-name");
+        const iconError2 = document.getElementById("icon-error2");
+        const formError2 = document.getElementById("form-error2");
+
+
+        const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+        const emailAddress = document.getElementById("email-address");
+        const iconError3 = document.getElementById("icon-error3");
+        const formError3 = document.getElementById("form-error3");
+        
+
+        const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/
+        const password = document.getElementById("password");
+        const iconError4 = document.getElementById("icon-error4");
+        const formError4 = document.getElementById("form-error4");
+
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const resultOfEmailRegex = emailRegex.test(emailAddress.value);
+            const resultOfPasswordRegex = passwordRegex.test(password.value);
+
+            //First Name
+            if (!(firstName.value.trim())) {
+                formError1.style.visibility = "visible";
+                firstName.style.border = "2px solid hsl(0, 100%, 74%)";
+                iconError1.style.visibility = "visible"
+            } else {
+                formError1.style.visibility = "hidden";
+                firstName.style.border = "1px solid rgb(230, 230, 230)";
+                iconError1.style.visibility = "hidden"
+            }
+            //
+
+            //Last Name
+            if (!(lastName.value.trim())) {
+                formError2.style.visibility = "visible";
+                lastName.style.border = "2px solid hsl(0, 100%, 74%)";
+                iconError2.style.visibility = "visible"
+            } else {
+                formError2.style.visibility = "hidden";
+                lastName.style.border = "1px solid rgb(230, 230, 230)";
+                iconError2.style.visibility = "hidden"
+            }
+            //
+
+            //Email Address
+            if (!(emailAddress.value.trim())) {
+                formError3.style.visibility = "visible";
+                emailAddress.style.border = "2px solid hsl(0, 100%, 74%)";
+                formError3.innerHTML = "Email cannot be empty"
+                iconError3.style.visibility = "visible"
+            } else if (!(resultOfEmailRegex)) {
+                    formError3.style.visibility = "visible";
+                    formError3.innerHTML = "Looks like this is not an email"
+                } else {
+                        formError3.style.visibility = "hidden";
+                        emailAddress.style.border = "1px solid rgb(230, 230, 230)";
+                        iconError3.style.visibility = "hidden"
+                    }
+            //
+
+            //Password
+            if (!(password.value.trim())) {
+                formError4.style.visibility = "visible";
+                password.style.border = "2px solid hsl(0, 100%, 74%)";
+                formError4.innerHTML = "Password cannot be empty"
+                iconError4.style.visibility = "visible"
+            } else if (!(resultOfPasswordRegex)) {
+                    formError4.style.visibility = "visible";
+                    formError4.innerHTML = 
+                    "at least one number, one UPPERCASE and one lowercase character and at least 8 digits"
+                } else {
+                        formError4.style.visibility = "hidden";
+                        password.style.border = "1px solid rgb(230, 230, 230)";
+                        iconError4.style.visibility = "hidden"
+                    }
+        })
+
+
+
+
+    </script>
+</body>
+</html>
